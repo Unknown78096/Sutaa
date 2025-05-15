@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy Birthday Diya!</title>
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #000022, #001144);
+    font-family: 'Segoe Script', cursive, sans-serif;
+    color: #aad8ff;
+    text-align: center;
+    padding: 30px 15px 50px;
+  }
+  h1 {
+    font-size: 3em;
+    color: #66aaff;
+    text-shadow: 0 0 8px #4488ff;
+    margin-bottom: 20px;
+  }
+  .message-box {
+    background: rgba(0,0,0,0.5);
+    border: 2px solid #66aaff;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 1.4em;
+    min-height: 120px;
+    box-shadow: 0 0 15px #4488ff;
+  }
+  button {
+    background-color: #004488;
+    border: 2px solid #66aaff;
+    color: #aad8ff;
+    padding: 12px 22px;
+    margin: 12px 10px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    box-shadow: 0 0 8px #66aaff;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #2266cc;
+  }
+  #playMusicBtn {
+    background-color: #0066cc;
+    margin-top: 30px;
+  }
+</style>
+</head>
+<body>
+
+  <h1>Happy Birthday Diya!</h1>
+
+  <div class="message-box" id="messageBox">
+    Click the buttons below to see your birthday wishes!
+  </div>
+
+  <div>
+    <button onclick="showMessage(1)">Wish 1</button>
+    <button onclick="showMessage(2)">Wish 2</button>
+    <button onclick="showMessage(3)">Wish 3</button>
+    <button onclick="showMessage(4)">Wish 4</button>
+  </div>
+
+  <button id="playMusicBtn" onclick="toggleMusic()">Play Music</button>
+
+  <audio id="bgMusic" src="diya.mp3" loop></audio>
+
+<script>
+  const messages = {
+    1: "Happy Birthday Diya! You are an amazing person and you deserve all the best.",
+    2: "Wishing you joy, success, and happiness always. Enjoy your special day!",
+    3: "To the brightest light in my life – Happy Birthday, Diya!",
+    4: "May your birthday be filled with laughter, love, and unforgettable moments."
+  };
+
+  const messageBox = document.getElementById('messageBox');
+  const bgMusic = document.getElementById('bgMusic');
+  const playMusicBtn = document.getElementById('playMusicBtn');
+
+  function showMessage(num) {
+    messageBox.textContent = messages[num];
+  }
+
+  function toggleMusic() {
+    if (bgMusic.paused) {
+      bgMusic.play().catch(() => {
+        alert("Please click anywhere on the page first to allow audio playback.");
+      });
+      playMusicBtn.textContent = "Pause Music";
+    } else {
+      bgMusic.pause();
+      playMusicBtn.textContent = "Play Music";
+    }
+  }
+</script>
+
+</body>
+</html>
